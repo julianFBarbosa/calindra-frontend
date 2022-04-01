@@ -8,7 +8,7 @@ class ProductService {
   }
 
   async listProducts(product) {
-    return this.ttpClient.get(`/autocomplete?content=${product}&source=nanook`);
+    return this.httpClient.get(`/autocomplete?content=${product}&source=nanook`);
   }
 }
 
