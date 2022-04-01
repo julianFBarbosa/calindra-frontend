@@ -1,17 +1,19 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import { SearchContext } from "./SearchContext";
-import { Header } from "./components/Header";
-
-import { Routes } from "./routes";
 import { BrowserRouter } from "react-router-dom";
+import { Routes } from "./routes";
 import { Col, Container, Row } from "react-bootstrap";
+
+import { SearchContext } from "./context/SearchContext";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <BrowserRouter>
       <SearchContext>
-        <Container>
+        <Container className="mb-5">
           <Row>
             <Col xs={12}>
               <Header />
@@ -22,8 +24,8 @@ function App() {
               <Routes />
             </Col>
           </Row>
+          <Footer />
         </Container>
-        <Header />
       </SearchContext>
     </BrowserRouter>
   );
