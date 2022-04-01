@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y build-essential
 WORKDIR /frontend
 
 COPY package.json package-lock.json ./
-RUN npm ci --silent
+RUN npm install
 COPY . .
 
 ARG REACT_APP_API_BASE_URL
