@@ -5,11 +5,15 @@ import { SearchContextValue } from "../../context/SearchContext";
 
 export const SearchBar = () => {
   const { search, setSearch } = useContext(SearchContextValue);
+  const [firstRender, setFirstRender] = useState(true);
   const [field, setField] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (firstRender) return;
     navigate(`/produtos/${search.replaceAll(" ", "-")}`);
+    
+    return () => setFirstRender(false);
   }, [search]);
 
   const handleChange = ({ target }) => {
