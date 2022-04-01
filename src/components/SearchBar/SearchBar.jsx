@@ -25,8 +25,8 @@ export const SearchBar = () => {
     }
     
     setSearch(field);
+    navigate(`/produtos/${field.replaceAll(" ", "-")}`);
     setField("");
-    navigate(`/produtos/${search.replaceAll(" ", "-")}`);
   };
 
   return (
