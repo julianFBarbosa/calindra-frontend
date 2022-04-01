@@ -1,19 +1,16 @@
-class HttpClient {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
-  }
+const httpClient = (baseURL) => {
+  return {
+    get: async (path) => {
+      const request = await fetch(`${baseURL}${path}`);
+      const response = await request.json();
 
-  async get(path) {
-    const request = await fetch(`${this.baseURL}${path}`);
-    const response = await request.json();
+      if (request.ok) {
+        return response;
+      }
 
-    if (request.ok) {
-      return response;
-    }
+      throw new Error(`Erro na api: ${response.message}`);
+    },
+  };
+};
 
-    console.log("response", response);
-    throw new Error(`Erro na api: ${response.message}`);
-  }
-}
-
-export default HttpClient;
+export default httpClient;

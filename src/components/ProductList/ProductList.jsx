@@ -10,14 +10,16 @@ export const ProductList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const { search } = useContext(SearchContextValue);
+  const { search, setSearch } = useContext(SearchContextValue);
 
   useEffect(() => {
     (async () => {
       try {
         setError(null);
         setIsLoading(true);
-        const request = await ProductService.listProducts(search.replaceAll('-', ' '));
+        const request = await ProductService.listProducts(
+          search.replaceAll("-", " ")
+        );
 
         setData(request);
       } catch (error) {
@@ -90,7 +92,10 @@ export const ProductList = () => {
                 <ListGroup>
                   {data.suggestions.map((suggestion) => (
                     <ListGroup.Item key={suggestion.term}>
-                      <Link to={`/produtos/${suggestion.term.replaceAll(' ', '-')}`}>
+                      <Link
+                        to={`/produtos/${suggestion.term.replaceAll(" ", "-")}`}
+                        onClick={() => setSearch(suggestion.term)}
+                      >
                         {suggestion.term}
                       </Link>
                     </ListGroup.Item>
@@ -104,5 +109,5 @@ export const ProductList = () => {
     );
   }
 
-  return null;
+  return <p>abc</p>;
 };
