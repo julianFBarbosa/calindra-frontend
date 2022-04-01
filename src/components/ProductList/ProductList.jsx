@@ -12,8 +12,6 @@ export const ProductList = () => {
   const [error, setError] = useState(null);
   const { search } = useContext(SearchContextValue);
 
-  console.log('search', search)
-
   useEffect(() => {
     (async () => {
       try {
@@ -23,7 +21,6 @@ export const ProductList = () => {
 
         setData(request);
       } catch (error) {
-        console.log('error', error)
         setError(error);
       } finally {
         setIsLoading(false);
