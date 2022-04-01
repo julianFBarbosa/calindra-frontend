@@ -26,7 +26,6 @@ export const SearchBar = () => {
   return (
     <FloatingLabel label="Busque um produto" className="d-flex gap-3">
       <Form.Control
-        placeholder="Leave a comment here"
         value={field}
         onChange={handleChange}
         onKeyUp={handleEnter}
