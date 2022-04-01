@@ -4,12 +4,16 @@ class HttpClient {
   }
 
   async get(path) {
-    const response = await fetch(`${this.baseURL}${path}`);
+    const request = await fetch(`${this.baseURL}${path}`);
+    const response = await request.json();
 
-    if (response.ok) {
-      return response.json();
+    if (request.ok) {
+      return response;
     }
+
+    console.log("response", response);
+    throw new Error(`Erro na api: ${response.message}`);
   }
 }
 
-export default new HttpClient();
+export default HttpClient;
