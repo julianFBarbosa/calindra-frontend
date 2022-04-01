@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Helmet from "react-helmet";
 
 export const Home = () => {
-  const name = "Camisa";
-
   return (
     <div>
       <Helmet>
