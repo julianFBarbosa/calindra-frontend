@@ -7,7 +7,7 @@ services:
         - REACT_APP_API_BASE_URL=$CLIENT_API_BASE_URL
     volumes:
       - ./:/frontend
-      - frontend_deps:/backend/node_modules
+      - frontend_deps:/frontend/node_modules
     ports:
       - 3000:3000
 
