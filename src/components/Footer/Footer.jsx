@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import style from "./Footer.module.scss";
-console.log('style', style)
 
 export const Footer = () => {
   return (
