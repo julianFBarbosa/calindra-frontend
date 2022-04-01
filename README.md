@@ -8,7 +8,7 @@ This project requires that you have [Docker](https://docker.com) and [Docker com
 
 ## Instalation
 
-at the project's root run: `cp .env.example .env` or similar
+at the project's root run: `cp .env.example .env`, and after run `npm install` or similar.
 
 ## Available Scripts
 
