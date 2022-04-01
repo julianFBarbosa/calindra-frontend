@@ -1,20 +1,12 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { SearchContextValue } from "../../context/SearchContext";
 
 export const SearchBar = () => {
   const { search, setSearch } = useContext(SearchContextValue);
-  const [firstRender, setFirstRender] = useState(true);
   const [field, setField] = useState("");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (firstRender) return;
-    navigate(`/produtos/${search.replaceAll(" ", "-")}`);
-    
-    return () => setFirstRender(false);
-  }, [search]);
 
   const handleChange = ({ target }) => {
     setField(target.value);
@@ -31,8 +23,10 @@ export const SearchBar = () => {
       alert("O campo de busca não pode estar vazio.");
       return;
     }
+    
     setSearch(field);
     setField("");
+    navigate(`/produtos/${search.replaceAll(" ", "-")}`);
   };
 
   return (
